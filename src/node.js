@@ -1,37 +1,41 @@
 import { Shape, Container, Text, Graphics } from '@createjs/easeljs';
 
-class Node {
+class Node extends Container {
+    static SHAPE_SIZE = 40;
+
     constructor(value, leftChild, rightChild) {
+        super();
         this.value = value;
         this.leftChild = leftChild;
         this.rightChild = rightChild;
+        this.initView();
     }
 
-    view() {
-        let rootView = new Container();
-
+    initView() {
         let shape = new Shape();
-        shape.color = 'yellow';
-        let circle = new Graphics.Circle(40, 40, 30);
+        let circle = new Graphics.Circle(Node.SHAPE_SIZE, Node.SHAPE_SIZE, Node.SHAPE_SIZE);
 
+        shape.graphics.beginStroke('red');
+        shape.graphics.beginFill('yellow');
         shape.graphics.append(circle);
 
-        shape.graphics.append({exec:function(ctx, shape) {
-            ctx.fillStyle = shape.color;
-            ctx.fill();
-        }});
+        this.addChild(shape);
 
-        rootView.addChild(shape);
+        let valueLable = new Text(this.value, "100px Arial", "#FF7700");
+        valueLable.textAlign = "center";
+        valueLable.textBaseline = "top";
 
-        let valueLable = new Text();
-        valueLable.text = this.value;
-        valueLable.font = "bold 36px Arial";
-        valueLable.color = "#FF7700";
-        valueLable.x = 80;
-        valueLable.y = 100;
-        rootView.addChild(valueLable);
+        const textWidth = valueLable.getMeasuredWidth();
+        const fontScale = (Math.SQRT2 * Node.SHAPE_SIZE * 100 / textWidth);
+        valueLable.font = parseInt(fontScale) + "px Arial";
 
-        return rootView;
+        const textHeight = valueLable.getMeasuredLineHeight();
+
+        valueLable.x = 40;
+        valueLable.y = (Node.SHAPE_SIZE * 2 - textHeight) / 2;
+        // console.log(textWidth, textHeight, fontScale);
+
+        this.addChild(valueLable);
     }
 }
 

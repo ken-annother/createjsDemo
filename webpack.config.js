@@ -52,8 +52,9 @@ module.exports = {
             maxAsyncRequests: 6,
             maxInitialRequests: 4,
             automaticNameDelimiter: '~',
+            name: true,
             cacheGroups: {
-                defaultVendors: {
+                vendors: {
                     test: /[\\/]node_modules[\\/]/,
                     priority: -10
                 },

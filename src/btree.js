@@ -1,19 +1,20 @@
 import { Stage, Shape } from '@createjs/easeljs';
 import './style.css';
-import {Node} from './node'
+import { Tree } from './tree';
 
 console.log("this is test");
 
 window.onload = function(window){
-   let stageCanvas = document.getElementById("stageCanvas");
+   const stageCanvas = document.getElementById("stageCanvas");
    stageCanvas.width = "600";
    stageCanvas.height = "600";
 
+   const stage = new Stage(stageCanvas);
 
-   let stage = new Stage(stageCanvas);
-
-   let node = new Node(5);
-   stage.addChild(node.view());
+   const tree = new Tree();
+   stage.addChild(tree);
    stage.update();
+
+   console.log(stage);
 
 }.bind(this);
