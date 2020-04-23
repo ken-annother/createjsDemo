@@ -7,7 +7,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     mode: 'development',
     entry: './src/btree.js',
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
     devServer: {
         contentBase: './dist',
         port: 9900
