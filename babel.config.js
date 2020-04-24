@@ -17,7 +17,8 @@ module.exports = function (api) {
             {
                 loose: true
             }
-        ]
+        ],
+        "@babel/plugin-transform-runtime"
     ];
 
     return { presets, plugins };

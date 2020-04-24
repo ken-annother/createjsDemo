@@ -12,18 +12,19 @@ class Node extends Container {
     }
 
     initView() {
-        let shape = new Shape();
-        let circle = new Graphics.Circle(Node.SHAPE_SIZE, Node.SHAPE_SIZE, Node.SHAPE_SIZE);
+        const shape = new Shape();
+        const circle = new Graphics.Circle(Node.SHAPE_SIZE, Node.SHAPE_SIZE, Node.SHAPE_SIZE);
 
         shape.graphics.beginStroke('red');
         shape.graphics.beginFill('yellow');
         shape.graphics.append(circle);
+        
 
         this.addChild(shape);
 
         let valueLable = new Text(this.value, "100px Arial", "#FF7700");
         valueLable.textAlign = "center";
-        valueLable.textBaseline = "top";
+        valueLable.textBaseline = "hanging";
 
         const textWidth = valueLable.getMeasuredWidth();
         const fontScale = (Math.SQRT2 * Node.SHAPE_SIZE * 100 / textWidth);

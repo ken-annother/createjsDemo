@@ -4,7 +4,7 @@ import { Tree } from './tree';
 
 console.log("this is test");
 
-window.onload = function(window){
+window.onload = function (window) {
    const stageCanvas = document.getElementById("stageCanvas");
    stageCanvas.width = "600";
    stageCanvas.height = "600";
@@ -12,6 +12,15 @@ window.onload = function(window){
    const stage = new Stage(stageCanvas);
 
    const tree = new Tree();
+
+   function* dataGen() {
+      for (let i = 0; i < 10; i++) {
+         yield parseInt(Math.random() * 100);
+      }
+   }
+
+   tree.addData(dataGen);
+
    stage.addChild(tree);
    stage.update();
 
