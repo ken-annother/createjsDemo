@@ -6,7 +6,7 @@ console.log("this is test");
 
 window.onload = function (window) {
    const stageCanvas = document.getElementById("stageCanvas");
-   stageCanvas.width = "600";
+   stageCanvas.width = "800";
    stageCanvas.height = "600";
 
    const stage = new Stage(stageCanvas);
@@ -20,10 +20,11 @@ window.onload = function (window) {
    }
 
    tree.addData(dataGen);
-
+   tree.x = 450;
+   tree.y = 10;
    stage.addChild(tree);
    stage.update();
 
-   console.log(stage);
+   // console.log(stage);
 
 }.bind(this);
