@@ -37,6 +37,8 @@ class Node extends Container {
         // console.log(textWidth, textHeight, fontScale);
 
         this.addChild(valueLable);
+
+        console.log(this.getBounds());
     }
 }
 

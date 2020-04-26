@@ -17,7 +17,7 @@ class Tree extends Container {
 
     addData(dataGen) {
         let count = 0;
-        const fakeDatas = [63, 87, 56, 79, 98, 51, 65, 32, 84, 22];
+        const fakeDatas = [63, 6, 56, 79, 98, 51, 65, 32, 84, 22];
 
         // for (let v of dataGen()) {
         for (let v of fakeDatas) {
