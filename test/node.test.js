@@ -1,7 +1,4 @@
-const Node = require('../src/node');
-import {Mocha} from 'mocha';
-
-let expect = Mocha.expect;
+import {Node} from '../src/node'
 
 describe('test node', function () {
     it("sizetest", function () {
