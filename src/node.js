@@ -12,30 +12,24 @@ class Node extends Container {
     }
 
     initView() {
-        // const shape = new Shape();
-        // const circle = new Graphics.Circle(Node.SHAPE_SIZE, Node.SHAPE_SIZE, Node.SHAPE_SIZE);
+        const shape = new Shape();
 
-        // shape.graphics.beginStroke('red');
-        // shape.graphics.beginFill('yellow');
-        // shape.graphics.append(circle);
+        const circle = new Graphics.Circle(Node.SHAPE_SIZE, Node.SHAPE_SIZE, Node.SHAPE_SIZE);
 
-
-        // this.addChild(shape);
+        shape.graphics.beginFill('yellow');
+        shape.graphics.append(circle);
+        this.addChild(shape);
 
         let valueLable = new Text(this.value, "100px Arial", "#FF7700");
-        // valueLable.textAlign = "center";
-        // valueLable.textBaseline = "hanging";
-
+        valueLable.textAlign = "center";
+        valueLable.textBaseline = "middle";
         const textWidth = valueLable.getMeasuredWidth();
-        // const fontScale = (Math.SQRT2 * Node.SHAPE_SIZE * 100 / textWidth);
-        // valueLable.font = parseInt(fontScale) + "px Arial";
-
         const textHeight = valueLable.getMeasuredLineHeight();
-
-        // valueLable.x = 40;
-        // valueLable.y = (Node.SHAPE_SIZE * 2 - textHeight) / 2;
-        console.log(textWidth, textHeight);
-
+        const fontScaleH = (Math.SQRT2 * Node.SHAPE_SIZE * 100 / textWidth);
+        const fontScaleV = (Math.SQRT2 * Node.SHAPE_SIZE * 100 / textHeight);
+        valueLable.font = parseInt(Math.min(fontScaleH, fontScaleV)) + "px Arial";
+        valueLable.x = Node.SHAPE_SIZE;
+        valueLable.y = Node.SHAPE_SIZE;
         this.addChild(valueLable);
     }
 }

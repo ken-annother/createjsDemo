@@ -3,6 +3,7 @@ import './style.css';
 import { Tree } from './tree';
 import { Node } from './node'
 
+let stageCanvas = null;
 
 function paintTree() {
    const stage = new Stage(stageCanvas);
@@ -28,14 +29,13 @@ function paintTree() {
 
 function paintNode() {
    const stage = new Stage(stageCanvas);
-   const no = new Node();
+   const no = new Node(5);
    stage.addChild(no);
    stage.update();
-   // console.log(stage);
 }
 
 window.onload = function (window) {
-   const stageCanvas = document.getElementById("stageCanvas");
+   stageCanvas = document.getElementById("stageCanvas");
    stageCanvas.style.width = "800px";
    stageCanvas.style.height = "600px";
    stageCanvas.width = "800";
